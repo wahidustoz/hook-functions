@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
 using Tally.Hooks.Models;
@@ -12,7 +14,8 @@ namespace Tally.Hooks;
 public class TallyTeacherReportsHook(
     ILogger<TallyTeacherReportsHook> logger,
     ITelegramBotClient botClient,
-    IConfiguration configuration)
+    IConfiguration configuration,
+    IWebHostEnvironment hostingEnvironment)
 {
     [Function("tally-teacher-reports-hook")]
     public async Task<IActionResult> RunAsync(
@@ -45,8 +48,12 @@ public class TallyTeacherReportsHook(
                 parseMode: Telegram.Bot.Types.Enums.ParseMode.Html,
                 cancellationToken: cancellationToken);
 
-            await Task.Delay(10000, cancellationToken);
-            await botClient.DeleteMessageAsync(chatId, message.MessageId);
+            if (hostingEnvironment.IsDevelopment())
+            {
+                await Task.Delay(10000, cancellationToken);
+                await botClient.DeleteMessageAsync(chatId, message.MessageId);
+            }
+
         }
         catch (JsonException ex)
         {
