@@ -1,0 +1,55 @@
+
+POST http://localhost:7074/api/tally-teacher-reports-hook HTTP/1.1
+Content-Type: application/json
+
+{
+    "eventId": "3776997d-0254-43b1-ab29-bc33745d1a4e",
+    "eventType": "FORM_RESPONSE",
+    "createdAt": "2024-09-19T15:21:10.707Z",
+    "data": {
+        "responseId": "WkOlvj",
+        "submissionId": "WkOlvj",
+        "respondentId": "r2p7WR",
+        "formId": "me2EQE",
+        "formName": "Kunlik report",
+        "createdAt": "2024-09-19T15:21:10.000Z",
+        "fields": [
+            {
+                "key": "question_DBDVyN",
+                "label": "Ustoz",
+                "type": "INPUT_TEXT",
+                "value": "Wahid ustoz"
+            },
+            {
+                "key": "question_lBWNZN",
+                "label": "Guruh nomi",
+                "type": "INPUT_TEXT",
+                "value": ".NET Bootcamp 007"
+            },
+            {
+                "key": "question_JqDReY",
+                "label": "Mavzu",
+                "type": "INPUT_TEXT",
+                "value": "Azure Functions"
+            },
+            {
+                "key": "question_RxYzl4",
+                "label": "Nechta keldi",
+                "type": "INPUT_NUMBER",
+                "value": 22
+            },
+            {
+                "key": "question_oEdAQO",
+                "label": "Nechta kelmadi",
+                "type": "INPUT_NUMBER",
+                "value": 4
+            },
+            {
+                "key": "question_prWV0J",
+                "label": "Qo'shimcha izoh",
+                "type": "TEXTAREA",
+                "value": "Bugun LIVE davomida Azure function yaratib deploy qilamiz."
+            }
+        ]
+    }
+}
