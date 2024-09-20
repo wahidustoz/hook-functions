@@ -6,13 +6,6 @@ using Telegram.Bot;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()
-    .ConfigureAppConfiguration(config =>
-    {
-        config.SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", false, true)
-            .AddJsonFile("appsettings.Development.json", true)
-            .AddEnvironmentVariables();
-    })
     .ConfigureServices(services =>
     {
         services.AddApplicationInsightsTelemetryWorkerService();
