@@ -7,6 +7,7 @@
 .env
 
 appsettings.Development.json
+Migrations
 appsettings.json
 
 # User-specific files
