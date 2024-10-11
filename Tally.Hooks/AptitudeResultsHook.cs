@@ -36,7 +36,6 @@ public class AptitudeResultsHook(ILogger<AptitudeResultsHook> logger, Applicatio
                 return new BadRequestObjectResult("Invalid request payload.");
             }
 
-            // Here, you can add code to save the `aptitudeResult` to the database
             await dbContext.AptitudeResults.AddAsync(aptitudeResult);
             await dbContext.SaveChangesAsync();
 
@@ -49,7 +48,6 @@ public class AptitudeResultsHook(ILogger<AptitudeResultsHook> logger, Applicatio
             return new BadRequestObjectResult("Invalid JSON format.");
         }
 
-        // Return success response
         return new OkObjectResult("Aptitude result processed successfully.");
     }
 }
