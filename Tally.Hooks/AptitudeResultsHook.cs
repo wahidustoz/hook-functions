@@ -53,32 +53,3 @@ public class AptitudeResultsHook(ILogger<AptitudeResultsHook> logger, Applicatio
         return new OkObjectResult("Aptitude result processed successfully.");
     }
 }
-
-
-
-// using Microsoft.AspNetCore.Http;
-// using Microsoft.AspNetCore.Mvc;
-// using Microsoft.Azure.Functions.Worker;
-// using Microsoft.Extensions.Logging;
-
-// namespace Tally.Hooks;
-
-// public class AptitudeResultsHook
-// {
-//     private readonly ILogger<AptitudeResultsHook> _logger;
-
-//     public AptitudeResultsHook(ILogger<AptitudeResultsHook> logger)
-//     {
-//         _logger = logger;
-//     }
-
-//     [Function("aptitude-results-hook")]
-//     public IActionResult RunAsync(
-//         [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest request)
-//     {
-//         _logger.LogInformation("Aptitude Results Hook triggered.");
-
-//         // Return the desired string response
-//         return new OkObjectResult("Hello world, this is the first Azure Function"); 
-//     }
-// }

@@ -30,8 +30,6 @@ var host = new HostBuilder()
         var connectionString = context.Configuration.GetConnectionString("DefaultConnection");
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseNpgsql(connectionString));
-
-        // Add other necessary services if needed
     })
     .Build();
 
