@@ -42,7 +42,8 @@ public class AptitudeResultsHook(
                     Name = string.Join(" ", userData[0].Split("-")?.Select(x => x.ToCapitalCase()) ?? []),
                     Phone = userData[1],
                     Grade = int.Parse(userData[2]),
-                    CategoryScores = categoryScore.Value.ToDictionary(x => x.Key, x => x.Value)
+                    CategoryScores = categoryScore.Value.ToDictionary(x => x.Key, x => x.Value),
+                    Timestamp = DateTimeOffset.FromUnixTimeSeconds(int.Parse(userData[3]))
                 };
 
                 dbContext.AptitudeResults.Add(entity);

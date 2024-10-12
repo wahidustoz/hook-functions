@@ -9,4 +9,5 @@ public class AptitudeResult
     public string Phone { get; set; } = string.Empty;
     public int Grade { get; set; }
     public Dictionary<string, int> CategoryScores { get; set; } = new();
+    public DateTimeOffset Timestamp { get; set; }
 }
