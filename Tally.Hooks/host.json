@@ -2,13 +2,21 @@
     "version": "2.0",
     "logging": {
         "logLevel": {
-            "default": "Information"
+            "default": "Information",
+            "Function": "Information",
+            "Host.Aggregator": "Information",
+            "Host.Results": "Information",
+            "Function.TallyTeacherReportsHook": "Information",
+            "Function.HealthFunction": "Information",
+            "Function.AptitudeResultsHook": "Information"
+
         },
         "applicationInsights": {
             "samplingSettings": {
                 "isEnabled": true
             },
-            "enableLiveMetricsFilters": true
+            "enableLiveMetricsFilters": true,
+            "enableDependencyTracking": true
         }
     }
 }

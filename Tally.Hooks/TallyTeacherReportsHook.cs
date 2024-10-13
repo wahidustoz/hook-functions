@@ -60,6 +60,11 @@ public class TallyTeacherReportsHook(
             logger.LogError(ex, "Error deserializing request body.");
             return new BadRequestObjectResult("Invalid JSON format.");
         }
+        catch(Exception ex)
+        {
+            logger.LogError(ex, "Error sending message to Telegram.");
+            return new BadRequestObjectResult(JsonSerializer.Serialize(new { error = ex.Message, ex.StackTrace }));
+        }
 
         return new OkObjectResult("Hook processed!");
     }
