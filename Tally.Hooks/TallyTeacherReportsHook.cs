@@ -51,7 +51,7 @@ public class TallyTeacherReportsHook(
             if (hostingEnvironment.IsDevelopment())
             {
                 await Task.Delay(10000, cancellationToken);
-                await botClient.DeleteMessageAsync(chatId, message.MessageId);
+                await botClient.DeleteMessageAsync(chatId, message.MessageId, cancellationToken: cancellationToken);
             }
 
         }
