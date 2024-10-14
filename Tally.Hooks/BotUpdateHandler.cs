@@ -67,7 +67,6 @@ public class BotUpdateHandler(
                 .Split(',', StringSplitOptions.RemoveEmptyEntries)
                 .Select(x => x.Trim())
                 .ToArray();
-            logger.LogInformation("Aptitude admins: {AptitudeAdmins}", string.Join(", ", aptitudeAdmins ?? []));
             
             if (aptitudeAdmins is { Length: > 0 } 
             && aptitudeAdmins.Any(x => x.Equals(username, StringComparison.OrdinalIgnoreCase)))
