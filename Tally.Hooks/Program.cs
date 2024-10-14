@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Tally.Hooks;
 using Tally.Hooks.Data;
 using Telegram.Bot;
+using Telegram.Bot.Polling;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()
@@ -41,7 +42,9 @@ var host = new HostBuilder()
             ?? throw new Exception("Functions connection string not configured.");
         services.AddDbContext<IFunctionsDbContext, FunctionsDbContext>(options => options.UseNpgsql(connectionString));
 
+        services.AddScoped<IUpdateHandler, BotUpdateHandler>();
         services.AddHostedService<MigrationsHostedService>();
+        services.AddHostedService<BotHostedService>();
     })
     .ConfigureLogging(logging =>
     {
