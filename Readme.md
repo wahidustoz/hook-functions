@@ -4,7 +4,7 @@
     - install docker: https://docs.docker.com/desktop/install/windows-install/
     - run the following command:
     ```bash
-        docker run --name ilmhub-postgres -e POSTGRES_PASSWORD=example -d -p 5432:5432 postgres
+        docker run --name ilmhub-postgres -e POSTGRES_PASSWORD=example -e POSTGRES_USER=root -d -p 5432:5432 postgres
     ```
 
 2. Set the environment variables in the local.settings.json file.
