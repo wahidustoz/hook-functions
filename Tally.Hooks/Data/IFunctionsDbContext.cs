@@ -7,6 +7,7 @@ namespace Tally.Hooks.Data;
 public interface IFunctionsDbContext
 {
     DbSet<AptitudeResult> AptitudeResults { get; set; }
+    DbSet<ProfessionalEnhancementCertificate> ProfessionalEnhancementCertificates { get; set; }
     DatabaseFacade Database { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

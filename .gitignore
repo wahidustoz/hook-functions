@@ -4,6 +4,7 @@
 ## Get latest from `dotnet new gitignore`
 
 local.settings.json
+appsettings.Development.json
 .vscode/
 
 # dotenv files

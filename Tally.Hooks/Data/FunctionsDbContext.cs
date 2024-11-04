@@ -8,6 +8,7 @@ public class FunctionsDbContext(DbContextOptions<FunctionsDbContext> options)
     : DbContext(options), IFunctionsDbContext
 {
     public DbSet<AptitudeResult> AptitudeResults { get; set; }
+    public DbSet<ProfessionalEnhancementCertificate> ProfessionalEnhancementCertificates { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

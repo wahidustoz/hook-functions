@@ -1,5 +1,3 @@
-using System.Text.Json;
-
 namespace Tally.Hooks.Entities;
 
 public class AptitudeResult
