@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Tally.Hooks.Data;
@@ -11,9 +12,11 @@ using Tally.Hooks.Data;
 namespace Tally.Hooks.Migrations
 {
     [DbContext(typeof(FunctionsDbContext))]
-    partial class FunctionsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241104232730_CertificateEntityAdded")]
+    partial class CertificateEntityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

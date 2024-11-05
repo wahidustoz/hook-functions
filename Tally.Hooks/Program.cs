@@ -12,8 +12,12 @@ using Telegram.Bot.Polling;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()
-    .ConfigureAppConfiguration(config =>
+    .ConfigureAppConfiguration((context, config) =>
     {
+        config.AddJsonFile("appsettings.json", optional: true);
+        if(context.HostingEnvironment.IsDevelopment())
+            config.AddJsonFile("appsettings.Development.json", optional: true);
+
         if(IsAppConfigEnabled() && Environment.GetEnvironmentVariable("AppConfig__ConnectionString") is string connectionString)
         {
             config.AddAzureAppConfiguration(o =>

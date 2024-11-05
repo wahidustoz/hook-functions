@@ -21,19 +21,3 @@ public class AptitudeResultConfigurations : IEntityTypeConfiguration<AptitudeRes
                     v => JsonSerializer.Deserialize<Dictionary<string, int>>(v, JsonSerializerOptions.Default) ?? new());
     }
 }
-
-public class CertificateTypeConfigurations : IEntityTypeConfiguration<Certificate>
-{
-    public void Configure(EntityTypeBuilder<Certificate> builder)
-    {
-        builder.HasDiscriminator(x => x.Type)
-            .HasValue<ProfessionalEnhancementCertificate>(
-                ECertificateType.ProfessionalEnhancement);
-        builder.HasKey(x => x.Id);
-        builder.Property(x => x.Id).ValueGeneratedOnAdd();
-        builder.Property(x => x.Number)
-            .HasMaxLength(5)
-            .HasComputedColumnSql("substring(md5(\"Id\"::text) from 0 for 6)", stored: true);
-        builder.HasIndex(x => x.Number);
-    }
-}
