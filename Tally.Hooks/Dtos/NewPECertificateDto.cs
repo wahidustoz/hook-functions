@@ -13,7 +13,7 @@ public class NewPECertificate
     => new()
     {
         Holder = Holder,
-        LearingHours = LearningHours,
+        LearningHours = LearningHours,
         From = From,
         To = To
     };
@@ -32,7 +32,7 @@ public class PECertificateDto : CertificateDto
 {
     public DateOnly From { get; set; }
     public DateOnly To { get; set; }
-    public int LearingHours { get; set; }
+    public int LearningHours { get; set; }
 
     public static PECertificateDto FromEntity(ProfessionalEnhancementCertificate entity)
     => new()
@@ -41,7 +41,7 @@ public class PECertificateDto : CertificateDto
         Number = entity.Number,
         Holder = entity.Holder,
         Type = entity.Type.ToString(),
-        LearingHours = entity.LearingHours,
+        LearningHours = entity.LearningHours,
         From = entity.From,
         To = entity.To,
         CreatedAt = entity.CreatedAt
